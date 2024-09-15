@@ -1,2 +1,3 @@
-***This text will be bold***
-
+HOSTS are any device which sends or receive traffic .Ex-Computer,Servers,phones,Cloud servers
+Also iot devies-tv,speakers,thermometer,lights
+Anything that sends or receives traffic over the a network are called hosts.Ex-Clients and servers
