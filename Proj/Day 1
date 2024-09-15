@@ -1,3 +1,11 @@
 HOSTS are any device which sends or receive traffic .Ex-Computer,Servers,phones,Cloud servers
 Also iot devies-tv,speakers,thermometer,lights
 Anything that sends or receives traffic over the a network are called hosts.Ex-Clients and servers
+
+**An IP Address**-Is the identity of each host.
+It is of 32 bits.
+Represented as 4 octets and each octet can be 0-255.
+IP address are assigned by IANA .
+
+A Network -is what transports traffic btw hosts. Without neetwok data transfer will happen in portablre media.
+A subnet, or subnetwork, is a smaller, logical subdivision of a larger network.(network within a anetwork)
