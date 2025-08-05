@@ -1,0 +1,82 @@
+                           OOPS in JAVA
+
+A java program can contain any no of classes but can contain atmost 1 public class.More then 1 public class not allowed. 
+ie either 0 or 1.If by mistake more than one public class if we make in Java then compile time error will arise.
+
+class A
+class B
+class C
+prog name save as -Durga.java
+Here we can name the prog anything, but iof there is a public class present inside a java prog then the name of the prog must be compulsorily be the public class only.
+class A{
+}
+public class B{
+}
+class C{
+}
+Prog name - Durga.java =>compile time error
+Prog name - B.java (saved)
+
+Most of the students say that the class which contains the main method should be declared as the class name but this is NOT THE CASE.
+Ex) class A{
+p s v m(String args[]){
+Sopln("Hi");
+}
+}
+
+class B{
+p s v m(String args[]){
+Sopln("Hi");
+}
+}
+
+class C{
+p s v m(String args[]){
+Sopln("Hi");
+}
+}
+class D{
+}
+In this case I can use any name as my java prog as there is no main method.Now as there class has many main methods which class will be compiled?
+ANS) For every class present in the prog a separate .class file will be generated, here .class file is the object file.
+Ex) A.class, B.class, C.class , D.class file will be generated on compiling Durga.java file contaiang all these classes.
+java A ->A class main executed
+java b ->B class main method executed
+java D -> Error.As this class do not contain main method.
+
+javac Durga.java
+java A 
+Hi
+java B
+Hi
+java D
+Error: Main method not found in class D, please define the main method.
+Lets say if Durga file was not available then on typing java Durga Error will come.
+-------------------------------------------------------------
+import statement-Due to which we r not required to use fully qualified name
+-----------------
+public class Durga{
+p s v main(String args[]){
+ArrayList l = new ArrayList();
+}
+}
+//error in above - cannot find symbol ArrayList
+
+java.util.ArrayList = new java.util.ArrayList();//will work and compiled it is known as fully qualified name
+OR 
+import java.util.ArrayList; 
+
+TYPES OF IMPORT STATEMENT
+a)EXPLICIT - import java.util.ArrayList; (recommended as readability is improved)
+b)IMPLICIT  - import java.util.*;
+✅ Why Explicit Imports Are Preferred
+Improves readability: import java.util.ArrayList; makes it clear what classes you're using.
+Avoids clutter: You don’t have to repeat long package names like java.util.ArrayList every time.
+Reduces ambiguity: Especially helpful when multiple classes share the same name (e.g., java.util.Date vs java.sql.Date).
+Enhances maintainability: Easier for others (or future you) to understand and modify the code.
+
+
+
+
+
+
