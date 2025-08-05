@@ -52,7 +52,7 @@ Hi
 java D
 Error: Main method not found in class D, please define the main method.
 Lets say if Durga file was not available then on typing java Durga Error will come.
--------------------------------------------------------------
+-----------------------------------------------------------
 import statement-Due to which we r not required to use fully qualified name
 -----------------
 public class Durga{
@@ -67,14 +67,157 @@ OR
 import java.util.ArrayList; 
 
 TYPES OF IMPORT STATEMENT
+------------------------------
 a)EXPLICIT - import java.util.ArrayList; (recommended as readability is improved)
 b)IMPLICIT  - import java.util.*;
+
 ✅ Why Explicit Imports Are Preferred
 Improves readability: import java.util.ArrayList; makes it clear what classes you're using.
 Avoids clutter: You don’t have to repeat long package names like java.util.ArrayList every time.
 Reduces ambiguity: Especially helpful when multiple classes share the same name (e.g., java.util.Date vs java.sql.Date).
 Enhances maintainability: Easier for others (or future you) to understand and modify the code.
 
+⚠️ When to Use Fully Qualified Names
+When you have naming conflicts between classes from different packages.
+When the class is used only once or very rarely, and you want to avoid an extra import.
+
+IDES'S -always generate explicit import.
+These packages not required to import- 
+a)java.lang- package as by default its classes and interfaces are available for every java program.
+b)Default pkg.- current working directory then we will not require to import.
+
+Ex) folder name Durga 
+
+class Student
+{
+ public static void m1(){
+    Student.out.println("Student claa static method");
+}
+}
+--------------------------
+public class Test{
+public static void main(  String args[]){
+String s= new String("Durga");
+Thread t=new Thread();
+Exception e = new Exception();
+StringBuffer sb = new StringBuffer("Durga");
+//All above classes present inside java.lang pavkage
+Student s=new Student();
+s.m1();//OR Student.m1();
+}
+}
+
+NOTE- All classes presnt inside currenet directory (package)available to our program.
+All claases and integfaces present inside java.lang package by default available to every java program .For lang package import statement is not reuired. 
+
+NOTE-Whenever we are importing a package all classes and interfaces present in that package by default are available but not subpackage classes ,for that we need to write import statement upto that subpackage level.
+
+Ex) java
+      util
+         regex
+           Pattern class
+public class Test
+{
+  public static void main(String[] args){
+   Pattern p = Pattern.compile("ab");}
+}
+O/P - cannot find symbol: class Pattern ie compile tim error
+import java.*; //Same error
+import java.util.*;//Same error
+imprt java.util.regex.*;//No error regex package ke andar Pattern class is present.
+ ------------------------------------------------------- 
+
+package - a grp of related classes and interfaces are grouped into a separate unit called package.It is an encapsultaion mecahnism.
+Ex) java.sql package contains all classes and interfaces which are meant for db operations.
+Ex) java.io package for inpot/op operations.
+Ex)String and StringBuffer classes present inside java.lang package.
+ArrayList ->java.util package.
+
+sql package & sql package  ke andar ->Date classes are present.
+With the help of pck stateent we are able to differentiate.
+1)Naming conflicts are resolved.
+2)Modularity of the application is improved
+3) Maintainability ,,
+4) Security ,, .So that outside person not able to access.
+
+package is a keyword in java.
+
+packge com.durgasoft.ocja;
+public class Test
+{
+ p s v m(String args[]){
+  Sopln("package demo");}
+}
+1) javac Test.java.
+   Test.class will be made inside current working directory. (which we don not want)
+2) java -d . Test.java (Test.class java file made inside the package)
+     current WorkingDirectory
+            ->com
+                ->durgasoft
+                   ->ocja
+                      ->Test.class file
+ . means current working directory. If any above folder is not avaailable automatically will be cretaed by javac.
+If you want to save it in E drive then
+javac -d E: Test.java
+3)java com.durgasoft.ocja.Test => Use this statement to run the file.Whenever we r using java class ,if it is part of package them it is mandatory to write name of package statement fully qualified name at the time of execution.
+
+----------------------------------------------------------
+IMP POINTS ABT PACKAGE STATEMENTS
+-----------------------------------
+1) package pack1;
+package pack2;
+public class Test{
+}
+//error-> class ,interface or enum expected 
+package pack2;
+^
+
+Inside any java prog /file atmost 1 package statement is allowed else compile time error will arise; 
+While any no of import statement are expectable.
+
+2)import java.util.*;
+package pack1;
+public class Test{
+}
+//error-> class ,interface or enum expected 
+package pack2;
+^
+In any java prog the first non comment statement should be package statement and after that import 
+
+THIS ORDER IS IMP
+package statement
+import statement
+class /interface/enum 
+
+------------------------------------------------------------------------------------------------------------------------
+CLASS LEVEL MODIFIERS:PUBLIC & DEFAULT
+---------------------------------------
+Modifiers describe the behaviour of the class.
+public class test{
+}
+Can outside this class from anywhere
+If it is not public then default => only within the package.
+
+If the class is ABSTRACT then the object creation/instance creation is  possible.If the class is NOT  ABSTRACT then the object creation/instance creation is not possible. 
+
+If the class is FINAL  then the child class creation is not possible.If the class is NOT  FINAL then the child class  creation is  possible.
+
+MODIFIER FOR TOP LEVEL CLASSES(5)
+public
+<default>
+abstract(imp)
+final
+Strictfp(only need to be aware)
++
+IF IT IS INNER CLASS THEN (3) 
+private
+protected
+static 
+
+class Test{
+   class Inner{
+}
+}
 
 
 
