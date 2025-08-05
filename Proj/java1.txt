@@ -203,8 +203,9 @@ If the class is ABSTRACT then the object creation/instance creation is  possible
 If the class is FINAL  then the child class creation is not possible.If the class is NOT  FINAL then the child class  creation is  possible.
 
 MODIFIER FOR TOP LEVEL CLASSES(5)
-public
-<default>
+-------------------------------------
+public -Within the same pkg,outside the pkg. 
+<default> -outside the pack cannot outside pkg only / pkg level accesscurrent pkg.
 abstract(imp)
 final
 Strictfp(only need to be aware)
@@ -219,7 +220,44 @@ class Test{
 }
 }
 
+Ex) package pack1;
+class A{
+}
+class Test{
+  p s v m(String args[]){
+ A a= new A();
+}
+}
+//It is valid
+javac -d . A.java //saved the class name as A.java
+java pack1.Test 
 
+abstract modifier ->methods, class
+ (no clear/partial)               not for variables
+Abstract method has only declaration but no implementataion.Child classes are responsible to provide implemetation.
 
+Ex)
+public class Fruit
+{
+  public abstract String getTaste();
+}
 
+Ex2) class Loan{
+       public double getInterestRate();
+}
+//Interest rate y cant tell it varies from loan type to loan type like Student loan , home loan ,etc all diff.
+
+Ex3)
+public abstract void m1(){}// (not valid) - abstract methods cannot hv a body ;compile time error
+public  void m1();//(not valid as no implementation provided)
+public abstract void m1();(valid)
+public  void m1(){} (valid)
+
+Ex4) class Test {
+    public abstract void m1();
+}
+If a class contain atleast 1 abstract method then it must be declared as abstract.
+-------------------------------------------------------
+Abstract class
+---------------
 
