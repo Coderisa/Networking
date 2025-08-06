@@ -260,4 +260,52 @@ If a class contain atleast 1 abstract method then it must be declared as abstrac
 -------------------------------------------------------
 Abstract class
 ---------------
+If a class is declared as abstract it means partially implemented class.
+Advantage-Then no one is allowed to create an object of this class.
+abstract class Test
+{
+  public static void main(String args[]){
+Test t = new Test();}
+}
+Error:class is abstract , cannot be instantiated.
+---------------------------------------------------------
+ABSTRACT CLASS VS ABSTRACT METHOD
+----------------------------------
+If a class contain atleast 1 abstarct method then compulsory the class should be declared as abstract otherwise compile time error.
+Ex)  class Test{
+    public static void m1();
+}
+Test t =new Test();
+t.m1();//not valid as the method insself not complete
+Error: Test is not abstract and does not overrride abstarct method m1()in Test
+CORRECTED CODE
+--------------
+Ex)  class Test{
+    public static void m1();
+}
 
+Now if my class do not contain any abstract method still can I make my class as abstract.
+
+Ex) abstract class test{
+public void m1(){} //dummy implementation
+public void m2(){}
+}
+Test t=new Test;
+t.m1();
+ADAPTER CLASS-every adaptor class is recommended to be declare as abstract.
+HttpServlet - is an abstract class but does not contain any abstract method.
+Ex) abstract class Test {
+ public void m1(){}
+ public void m2(){}
+}
+Ex2) abstract class Test {
+ public abstract void m1();
+ public abstract void m2();
+}
+
+class SubTest extends Test{
+ public void m1(){
+}
+}//Error: SubTest is not abstract and does ot override a abstarct method m2() in Test.
+
+NOTE - Child class is responsible to provide  implementaion for parent class abstract methods.Whenever we are extending an abstarct class  for each and every abstarct method of the parent we should provide implementation in the child class otherwise we'll get compile time error.
