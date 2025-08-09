@@ -1,0 +1,78 @@
+MEMBER(variable/method) MODIFIERS -public 
+----------------
+1)PUBLIC & defualt members
+
+1)PUBLIC MEMBER DEFAULT CLASS - ACCESSIBLE WITHIN SAME PKG NOT OTHER PAG
+package pack1;
+  class A{
+  public void m1(){
+    System.out.println("A class method");}
+    }
+    
+ package pack2; 
+ import pack!.A;
+ import pack1.A;
+ public class B{
+    public static void main(String args[]){
+    A a = new A();
+    a.m1()
+    }
+    }
+  O/P-  javac -d . A.java
+        javac -d . B.java
+   error: A is not public in pack1; cannot be acced from outside.     
+Before checking the visibility of the member we have to check the visibility of the class.
+If we make the class public as weel then the class will compile.
+ java pack2.B (the class gets compiled).
+ NOTE - If a member is public then we can access that method within the package or outside the package but make sure that the corresponding class is declared as public.
+ 
+ 
+2) PUBLIC CLASS DEFAULT MEMBER(DEFAULT-no access modifier)
+  package pack1;
+  public class A{
+   void m1(){
+    System.out.println("A class method");}
+    }
+  note - The default memeber we can access from only inside the same package but not outside the parent pack.  
+else compile time error.
+------------------------------------------------------------    
+2)PRIVATE- same class (class level); 
+   default- package level
+   public - global level
+ Ex)  class A{
+        private void m1(){
+          Sopln("Hi");}
+       }
+      class Test{
+       p s v m(String [] args)
+       A a= new A();
+       a.m1();}
+   O/P-Error: m1 has private access in A.
+
+
+   note - highly recommended modifier for variables is private.
+   method - recommended is public.
+   
+   3)PROTECTED- WITHIN THE CURRENT PKG BUT FROM OUTSIDE PKG ONLY IN CHILD CLASSES.
+   protected = default + Kids
+   
+   package pavk1;
+   class A
+   {
+      protected void m1(){
+        Sopln(" A class protected method");}
+        }
+   class B extends A{
+      p s v m (String args[]){
+      A a =new A();
+      a.m1();
+      A a1 = new B();//Parent reference is used to hold child class obj.
+      a1.m1();
+      }
+      }//same pkg child class
+      
+
+      
+      
+     
+   
