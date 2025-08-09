@@ -306,6 +306,44 @@ Ex2) abstract class Test {
 class SubTest extends Test{
  public void m1(){
 }
-}//Error: SubTest is not abstract and does ot override a abstarct method m2() in Test.
+}//Error: SubTest is not abstract and does not override a abstarct method m2() in Test.
 
 NOTE - Child class is responsible to provide  implementaion for parent class abstract methods.Whenever we are extending an abstarct class  for each and every abstarct method of the parent we should provide implementation in the child class otherwise we'll get compile time error.
+SOLN
+---------
+a)abstract class Test {
+ public abstract void m1();
+ public abstract void m2();
+}
+
+abstract class SubTest extends Test{
+ public void m1(){
+}
+//declare child class as abstract - tempor soln we can't cretae obj for bboth Test & SubTest class
+class SubSubTest extends Test{
+ public void m2(){
+}
+Ex3)abstract class Vehicle{
+  public abstract int GetNoOfWheels();//can't make its objects
+}
+class Bus extends Vehicle{
+  public int getNoOfWheels(){
+    return 6;}
+}
+class Auto extends Vehicle{
+   public int getNoOfWheels(){
+    return 3;}
+}
+
+Class Test{
+p s v m(String args[]){
+  Bus b=new Bus();
+  Sopln(b.getNoOfWheels());//6
+
+  Auto a = new Auto();
+  Sopln(a.getNoOfWheels());//3
+}
+}
+NOTE- Even if we remove public abstract int GetNoOfWheels(); abstract method from the abstarct class then too the code runs perfectly as before .Then what is the use of declaring it in the parent class?
+ANS)Child class may or may not provide implementaion but if declared then the child class will compulsorily provide implementation.
+-------------------------------------------------------
