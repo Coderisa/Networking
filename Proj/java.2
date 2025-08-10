@@ -57,7 +57,7 @@ else compile time error.
    protected = default + Kids
    
    package pavk1;
-   class A
+   public class A//PUBLIC LIKNA IMP ELSE OUSIDE PKG CLASS WILL NOT BE ABLE TO ACEES
    {
       protected void m1(){
         Sopln(" A class protected method");}
@@ -69,10 +69,38 @@ else compile time error.
       A a1 = new B();//Parent reference is used to hold child class obj.
       a1.m1();
       }
-      }//same pkg child class
-      
+      }//same pkg child class will work
 
+
+      package pack2;
+      import pack1.A;
+      public class B extends A{
+         p s v m(String args[]){
+          A a= new A();//PARENT REFERENCE
+          a.m1();//ERROR - M1() HAS PROTECTED ACCESS IN A
+          B b =new B();//CHILD REFERENCE 
+          b.m1();//NO ERROR
+
+          A a1=new B();//PARENT REFERNCE
+          a1.m1();//ERROR- M1() HAS PROTECTED ACCESS IN A
+          }
+        }
+  //NOTE - IF WE WANT TO ACCESS PROTECTED MEMEBERS FROM OUTSIDE THE PFG ONLY IN CHILD CLASSES THEN WE SHOULD USE THAT CLASS CHILD REFERENCE ONLY NOT PARENT REFERENCE.
+
+visibility                           public    protected  default private
+within the same class                  y        y          y        y
+from child class of same pkg           y        y          y        no
+from non child class of same pkg       y        no         y        no
+from child class of outside pkg        y        y          no       no
+from non child class of outside pkg    y        no         no       no
+
+most accessible - public (recommended for methods)
+most restricted - private (recommended for variables)
       
-      
-     
-   
+private < default< protected < public
+--------------------------------------------------------------
+INTERFACE(3;17)
+---------
+
+Interv. ques) WHta is the diff btw interface and abstract class?
+Ans) 
