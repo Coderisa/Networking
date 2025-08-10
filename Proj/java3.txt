@@ -1,0 +1,16 @@
+                  OOPS
+                 ----------
+
+1)DATA HIDING - implemented by declaraing variable as private modifier.
+  Advantage of data hiding is security.
+  Ex)
+   class Account{
+      private double balance;
+      public double getBalance()
+  {
+        //validation
+        if valid return balance;
+  }
+}
+
+2)ABSTRACTION
